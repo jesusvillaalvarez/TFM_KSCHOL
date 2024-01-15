@@ -55,7 +55,8 @@ df['f_RUN'] = df['E_SIMEL'] > 0
 #flag instalacion arrancada y prevision a 0
 df['f_RUN_NOPREV'] = np.where((df['E_SIMEL'] > 0) & (df['PREVISION'] == 0), True, False)
 
-
+#flag instalacion prevision pero no arranca
+df['f_RUN_NO_ARRANCA'] = np.where((df['PREVISION'] > 0) & (df['E_SIMEL'] <= 0), True, False)
 print(df)
 
 
